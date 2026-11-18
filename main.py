@@ -6,9 +6,8 @@ from random import randint
 data = pd.read_csv("birthdays.csv")
 data_dict = data.to_dict("records")
 
-my_email = "raython48@gmail.com"
-old_email = "rayhanfallah29@gmail.com"
-password = "wralurxmlskeiqad"
+my_email = os.environ.get("my_email")
+password = os.environ.get("password")
 subject = "Happy Birthday!"
 
 now = dt.datetime.now()
