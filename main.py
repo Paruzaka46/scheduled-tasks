@@ -6,8 +6,8 @@ from random import randint
 data = pd.read_csv("birthdays.csv")
 data_dict = data.to_dict("records")
 
-my_email = os.environ.get("my_email")
-password = os.environ.get("password")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 subject = "Happy Birthday!"
 
 now = dt.datetime.now()
@@ -24,7 +24,7 @@ for i in range(len(data_dict)):
 
         with smtplib.SMTP('smtp.gmail.com', 587) as connection:
             connection.starttls()
-            connection.login(user=my_email, password=password)
-            connection.sendmail(from_addr=my_email,
+            connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+            connection.sendmail(from_addr=MY_EMAIL,
                                 to_addrs=email,
                                 msg=f"Subject:{subject}\n\n{letter.replace("[NAME]", name)}")
